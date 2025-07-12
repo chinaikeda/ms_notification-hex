@@ -26,7 +26,7 @@ public class NotificationConsumer {
             exchange = @Exchange(value = "${ikeda.broker.exchange.notificationCommandExchange}", type = ExchangeTypes.TOPIC, ignoreDeclarationExceptions = "true"),
             key = "${ikeda.broker.key.notificationCommandKey}")
     )
-    public void listem(@Payload NotificationRecordComandDto notificationRecordComandDto){
+    public void listen(@Payload NotificationRecordComandDto notificationRecordComandDto){
         var notificationDomain = new NotificationDomain();
         BeanUtils.copyProperties(notificationRecordComandDto, notificationDomain);
         notificationServicePort.saveNotification(notificationDomain);
