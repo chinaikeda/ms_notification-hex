@@ -10,6 +10,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface NotificationJpaRepository extends JpaRepository<NotificationEntity, UUID> {
-    Page<NotificationEntity> findAllByUserAndNotificationStatus(UUID userId, NotificationStatus notificationStatus, Pageable pageable);
+    Page<NotificationEntity> findAllByUserIdAndNotificationStatus(UUID userId, NotificationStatus notificationStatus, Pageable pageable);
     Optional<NotificationEntity> findByNotificationIdAndUserId(UUID notificationId, UUID userId);
 }

@@ -13,6 +13,5 @@ public interface NotificationPersistencePort {
     NotificationDomain save(NotificationDomain notificationDomain);
     List<NotificationDomain> findAllByUserNotificationStatus(UUID userId, NotificationStatus notificationStatus, PageInfo pageInfo);
     Optional<NotificationDomain> findByNotificationIdAndUserId(UUID notificationId, UUID userId);
-
     NotificationDomain update(NotificationStatus notificationStatus, NotificationDomain notificationDomain);
 }

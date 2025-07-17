@@ -36,7 +36,7 @@ public class NotificationPersistencePortImpl implements NotificationPersistenceP
     @Override
     public List<NotificationDomain> findAllByUserNotificationStatus(UUID userId, NotificationStatus notificationStatus, PageInfo pageInfo) {
         var pageable = PageRequest.of(pageInfo.getPageNumber(), pageInfo.getPageSize());
-        return notificationJpaRepository.findAllByUserAndNotificationStatus(userId, notificationStatus, pageable)
+        return notificationJpaRepository.findAllByUserIdAndNotificationStatus(userId, notificationStatus, pageable)
                 .stream()
                 .map(entity -> modelMapper.map(entity, NotificationDomain.class))
                 .collect(Collectors.toList());
